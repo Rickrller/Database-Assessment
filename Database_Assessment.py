@@ -11,7 +11,7 @@ def Look_Up_Swimmer():
     if Look_Up_Type == "Time":
         while True:
             try:
-                Look_Up_Value = int(input('Please enter a time (Milliseconds):'))
+                Look_Up_Value = int(input('Please enter a time (Milliseconds): '))
                 break
             except ValueError:
                 print('Invalid time!')
@@ -19,7 +19,9 @@ def Look_Up_Swimmer():
     with sqlite3.connect(DATABASE) as db:
         db = sqlite3.connect('Top_Swimmers.db')
         cursor = db.cursor()
-        sql = "SELECT Swimmer_Name, Fastest_50_Free_Milliseconds, Country, World_Placing, Event FROM swimmers WHERE Fastest_50_Free_Milliseconds < ?;"
+        if Look_Up_Type = "Time":
+            sql = "SELECT Swimmer_Name, Fastest_50_Free_Milliseconds, Country, World_Placing, Event FROM swimmers WHERE Fastest_50_Free_Milliseconds < ?;"
+        if L
         cursor.execute(sql, (Look_Up_Value,))
         results = cursor.fetchall()
         for swimmer in results:
