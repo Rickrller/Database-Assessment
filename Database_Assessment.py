@@ -48,6 +48,7 @@ def Look_Up_Swimmer():
         results = cursor.fetchall()
         for swimmer in results:
             print(f'Swimmer: {swimmer[0]}. Speed: {swimmer[1]/1000} seconds. Country: {swimmer[2]}. Event the time was taken: {swimmer[4]}. Current placing in the world: {swimmer[3]}.')
+        print("Lookup Complete.")
 
 
 while True:
